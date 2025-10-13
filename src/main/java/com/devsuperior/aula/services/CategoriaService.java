@@ -14,10 +14,11 @@ import com.devsuperior.aula.repositories.CategoriaRepository;
 
 @Service
 public class CategoriaService {
-
 	
 	@Autowired
 	private CategoriaRepository catRep;
+	
+	
 	
 	@Transactional(readOnly = true)
 	public List<CategoriaDTO> findAll() {
@@ -32,6 +33,7 @@ public class CategoriaService {
 	}
 	
 	
+	
 	@Transactional(readOnly = true)
 	public CategoriaDTO findById(Long id) {
 		Optional<Categoria> categoria = catRep.findById(id);
@@ -42,4 +44,35 @@ public class CategoriaService {
 				
 		return new CategoriaDTO(catBD);
 	}
+	
+	
+	@Transactional
+	public CategoriaDTO insert(CategoriaDTO catDTO) {
+		Categoria catBD = new Categoria();
+		catBD.setNome(catDTO.getNome());
+		
+		catBD = catRep.save(catBD);
+
+		return new CategoriaDTO(catBD);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
