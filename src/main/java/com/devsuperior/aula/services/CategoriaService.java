@@ -1,6 +1,7 @@
 package com.devsuperior.aula.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,17 @@ public class CategoriaService {
 				.collect(Collectors.toList());
 		
 		return categoriasDTO;
+	}
+	
+	
+	@Transactional(readOnly = true)
+	public CategoriaDTO findById(Long id) {
+		Optional<Categoria> categoria = catRep.findById(id);
+		
+		Categoria catBD = categoria.orElseThrow(() ->
+				new EntidadeNaoEncontradaException(
+						"Entidade não encontrada."));
+				
+		return new CategoriaDTO(catBD);
 	}
 }
