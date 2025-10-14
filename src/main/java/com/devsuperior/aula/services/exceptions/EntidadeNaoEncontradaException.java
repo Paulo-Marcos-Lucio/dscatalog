@@ -1,4 +1,4 @@
-package com.devsuperior.aula.services;
+package com.devsuperior.aula.services.exceptions;
 
 public class EntidadeNaoEncontradaException extends RuntimeException {
 	
@@ -6,5 +6,9 @@ public class EntidadeNaoEncontradaException extends RuntimeException {
 
 	public EntidadeNaoEncontradaException(String msg) {
 		super(msg);
+	}
+	
+	public EntidadeNaoEncontradaException(Long id) {
+		this(String.format("Entidade deste id '%d' não encontrada. ", id));
 	}
 }

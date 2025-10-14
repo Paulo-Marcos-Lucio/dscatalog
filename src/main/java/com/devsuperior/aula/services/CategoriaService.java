@@ -5,12 +5,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.aula.dto.CategoriaDTO;
 import com.devsuperior.aula.entities.Categoria;
 import com.devsuperior.aula.repositories.CategoriaRepository;
+import com.devsuperior.aula.services.exceptions.EntidadeEmUsoException;
+import com.devsuperior.aula.services.exceptions.EntidadeNaoEncontradaException;
 
 @Service
 public class CategoriaService {
@@ -54,6 +57,34 @@ public class CategoriaService {
 		catBD = catRep.save(catBD);
 
 		return new CategoriaDTO(catBD);
+	}
+	
+	
+	@Transactional
+	public CategoriaDTO update(Long id, CategoriaDTO catDTO) {
+		Categoria catBD = findOrFailById(id);
+		catBD.setNome(catDTO.getNome());
+		catBD = catRep.save(catBD);
+		return new CategoriaDTO(catBD);
+	}
+	
+	
+	@Transactional
+	public void delete(Long id) {
+		try {
+			Categoria catBD = findOrFailById(id);
+			catRep.delete(catBD);
+			catRep.flush();
+			}
+		catch(DataIntegrityViolationException ex) {
+			throw new EntidadeEmUsoException(id);
+		}
+	}
+	
+	
+	public Categoria findOrFailById(Long id) {
+		return catRep.findById(id)
+			.orElseThrow(() -> new EntidadeNaoEncontradaException(id));
 	}
 	
 	

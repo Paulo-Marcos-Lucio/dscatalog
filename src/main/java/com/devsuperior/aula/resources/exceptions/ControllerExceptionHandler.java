@@ -7,7 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.devsuperior.aula.services.EntidadeNaoEncontradaException;
+import com.devsuperior.aula.services.exceptions.EntidadeEmUsoException;
+import com.devsuperior.aula.services.exceptions.EntidadeNaoEncontradaException;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -26,5 +27,18 @@ public class ControllerExceptionHandler {
 		erro.setPath(request.getRequestURI());
 		
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
+	}
+	
+	
+	@ExceptionHandler(EntidadeEmUsoException.class)
+	public ResponseEntity<ErroPadrao> entidadeEmUso(EntidadeEmUsoException ex, HttpServletRequest request) {
+		ErroPadrao erro = new ErroPadrao();
+		erro.setTimestamp(Instant.now());
+		erro.setStatus(HttpStatus.CONFLICT.value());
+		erro.setError("Recurso em uso.");
+		erro.setMessage("Este recurso está em uso como dependencia externa de outro recurso.");
+		erro.setPath(request.getRequestURI());
+		
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
 	}
 }
