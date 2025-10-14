@@ -1,11 +1,11 @@
 package com.devsuperior.aula.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,15 +24,13 @@ public class CategoriaService {
 	
 	
 	@Transactional(readOnly = true)
-	public List<CategoriaDTO> findAll() {
-		List<Categoria> categorias = catRep.findAll();
+	public Page<CategoriaDTO> findAllPaged(PageRequest pageRequest) {
+		Page<Categoria> categorias = catRep.findAll(pageRequest);
 		
-		List<CategoriaDTO> categoriasDTO = 
-				categorias.stream()
-				.map(categoriaBd -> new CategoriaDTO(categoriaBd))
-				.collect(Collectors.toList());
-		
-		return categoriasDTO;
+	
+		return categorias
+			.map(categoriaBd -> new CategoriaDTO(categoriaBd));
+
 	}
 	
 	

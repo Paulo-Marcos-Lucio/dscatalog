@@ -12,7 +12,6 @@ public class CategoriaDTO implements Serializable {
 	private String nome;
 	
 	
-	
 	public CategoriaDTO() {
 		
 	}
@@ -43,7 +42,6 @@ public class CategoriaDTO implements Serializable {
 		this.nome = nome;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
