@@ -71,8 +71,8 @@ public class ProdutoService {
 	@Transactional
 	public void delete(Long id) {
 		try {
-			Produto prodBD = findOrFailById(id);
-			prodRep.delete(prodBD);
+			findOrFailById(id);
+			prodRep.deleteById(id);
 			prodRep.flush();
 			}
 		catch(DataIntegrityViolationException ex) {
