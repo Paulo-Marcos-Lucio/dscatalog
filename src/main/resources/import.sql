@@ -102,3 +102,110 @@ insert into tb_produto_categoria (produto_id, categoria_id) values (16, 10);
 insert into tb_produto_categoria (produto_id, categoria_id) values (20, 21);
 insert into tb_produto_categoria (produto_id, categoria_id) values (21, 20);
 insert into tb_produto_categoria (produto_id, categoria_id) values (23, 13);
+
+
+
+-- ============================================
+-- INSERÇÕES NA TABELA tb_usuario
+-- ============================================
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('joao.silva@email.com', 'João', '$2a$10$abcdefghijklmnopqrstuv', 'Silva');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('maria.santos@email.com', 'Maria', '$2a$10$bcdefghijklmnopqrstuvw', 'Santos');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('pedro.oliveira@email.com', 'Pedro', '$2a$10$cdefghijklmnopqrstuvwx', 'Oliveira');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('ana.costa@email.com', 'Ana', '$2a$10$defghijklmnopqrstuvwxy', 'Costa');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('carlos.pereira@email.com', 'Carlos', '$2a$10$efghijklmnopqrstuvwxyz', 'Pereira');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('julia.rodrigues@email.com', 'Júlia', '$2a$10$fghijklmnopqrstuvwxyza', 'Rodrigues');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('lucas.almeida@email.com', 'Lucas', '$2a$10$ghijklmnopqrstuvwxyzab', 'Almeida');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('fernanda.lima@email.com', 'Fernanda', '$2a$10$hijklmnopqrstuvwxyzabc', 'Lima');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('rafael.martins@email.com', 'Rafael', '$2a$10$ijklmnopqrstuvwxyzabcd', 'Martins');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('camila.souza@email.com', 'Camila', '$2a$10$jklmnopqrstuvwxyzabcde', 'Souza');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('bruno.ferreira@email.com', 'Bruno', '$2a$10$klmnopqrstuvwxyzabcdef', 'Ferreira');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('patricia.gomes@email.com', 'Patrícia', '$2a$10$lmnopqrstuvwxyzabcdefg', 'Gomes');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('rodrigo.barbosa@email.com', 'Rodrigo', '$2a$10$mnopqrstuvwxyzabcdefgh', 'Barbosa');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('amanda.ribeiro@email.com', 'Amanda', '$2a$10$nopqrstuvwxyzabcdefghi', 'Ribeiro');
+
+INSERT INTO tb_usuario (email, primeiro_nome, senha, ultimo_nome) VALUES ('gustavo.cardoso@email.com', 'Gustavo', '$2a$10$opqrstuvwxyzabcdefghij', 'Cardoso');
+
+
+
+-- ============================================
+-- INSERÇÕES NA TABELA tb_papel
+-- ============================================
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_ADMIN');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_USER');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_MANAGER');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_MODERATOR');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_EDITOR');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_VIEWER');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_DEVELOPER');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_ANALYST');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_SUPPORT');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_SALES');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_MARKETING');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_FINANCE');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_HR');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_CUSTOMER');
+
+INSERT INTO tb_papel (autoridade) VALUES ('ROLE_GUEST');
+
+
+-- ============================================
+-- INSERÇÕES NA TABELA tb_usuario_papel
+-- ============================================
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (1, 1);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (2, 1);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (2, 2);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (3, 2);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (3, 3);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (4, 3);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (5, 4);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (6, 4);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (7, 5);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (8, 5);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (9, 6);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (10, 6);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (1, 7);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (11, 7);
+
+INSERT INTO tb_usuario_papel (papel_id, usuario_id) VALUES (12, 8);

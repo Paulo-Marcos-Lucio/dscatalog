@@ -40,9 +40,9 @@ public class ProdutoService {
 	
 	@Transactional(readOnly = true)
 	public ProdutoDTO findById(Long id) {
-		Optional<Produto> Produto = prodRep.findById(id);
+		Optional<Produto> produto = prodRep.findById(id);
 		
-		Produto prodBD = Produto.orElseThrow(() ->
+		Produto prodBD = produto.orElseThrow(() ->
 				new EntidadeNaoEncontradaException(
 						"Entidade não encontrada."));
 				
